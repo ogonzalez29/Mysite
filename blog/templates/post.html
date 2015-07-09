@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Blog Servitalleres</title>
+    <meta charset="utf-8"/>
+
+    <link rel="stylesheet" href="/static/css/styles.css" type = "text/css"/>
+    <meta name="viewport content" = "width-device-width, initial-scale=1.0">
+</head>
+<body class="body">
+    <header class="mainHead">
+        <img src="/static/img/logoservitalleres.jpg" width="700" height="144">
+        <nav><ul>
+            <li><a href='/'>Home</a></li>
+            <li><a href='/blog/'>Blog</a></li>
+            <li><a href='/blog/latestnews/'>Noticias</a></li>
+            <li><a href='/blog/latestnews/'>Archivo</a></li>
+        
+        </ul></nav>
+    </header>
+{% block content %}
+
+<h3><a href="/blog/{{post.id}}">{{ post.title }}</a></h3>
+<p class = "postInfo">
+	on {{ post.date }}
+</p>
+
+<div class = "post_body">
+	{{ post.body|safe|linebreaks}}
+	{{ showimage.pilImage }}
+</div>
+{% endblock %}
+<footer class="mainFooter">
+        <p> Copyright &copy; 2015 Servitalleres</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<title>Blog Servitalleres</title>
+	<meta charset="utf-8"/>
+
+	<link rel="stylesheet" href="/static/css/styles.css" type = "text/css"/>
+	<meta name="viewport content" = "width-device-width, initial-scale=1.0">
+</head>
+
+<body class="body">
+	<header class="mainHead">
+		<img src="/static/img/logoservitalleres.jpg" width="700" height="144">
+		<nav><ul>
+			<li><a href='/'>Home</a></li>
+			<li><a href='/blog/'>Blog</a></li>
+			<li><a href='/blog/latestnews/'>Noticias</a></li>
+			<li><a href='/blog/latestnews/'>Archivo</a></li>
+		
+		</ul></nav>
+	</header>
+	{% block content %}
+	{% endblock %}	
+	<div class="sideBlock">
+		<h3>Síguenos</h3>
+		<aside class="sideInfoSocialNetwork">
+			<ul>
+				<li><a href="https://www.facebook.com/servitalleresltda" target="_blank"><img src="/static/img/fb-icon.png" alt="Facebook icon" title="Ir a Servitalleres Facebook"></a></li>
+				<li><a href="https://www.twitter.com/servitalleres" target="_blank"><img src="/static/img/twitter-icon.png" alt="Twitter icon" title="Ir a Servitalleres Twitter"></a></li>
+				<li><a href="" target="_blank"><img src="/static/img/feed-icon.png" alt="RSS Feed icon" title="Servitalleres RSS Feed"></a></li>
+			</ul>
+		</aside>
+		<div class="sideInfo">
+			<h3>Entradas Recientes</h3>
+			{% for post in object_list %}
+			<p>{{ post.date|date:"Y-m-d" }}<a href="/blog/{{post.id}}"> {{ post.title }}</a></p>
+			{% endfor %}
+		</div>
+		<h3>Tags</h3>
+		<li class="tagCloud">
+			<div class="ctc">
+				<a href="http://www.blogtelefonica.es/tag/adsl" class="ctc-tag tag-link-23" title="4 topics" rel="tag" style="font-size: 22pt;">Motor</a>
+				<a href="http://www.blogtelefonica.es/tag/apps" class="ctc-tag tag-link-4" title="3 topics" rel="tag" style="font-size: 8.875pt;">Pintura</a>
+				<a href="http://www.blogtelefonica.es/tag/fusion-cero" class="ctc-tag tag-link-21" title="3 topics" rel="tag" style="font-size: 10.75pt;">Llantas</a>
+				<a href="http://www.blogtelefonica.es/tag/google" class="ctc-tag tag-link-81" title="3 topics" rel="tag" style="font-size: 16.375pt;">frenos</a>
+				<a href="http://www.blogtelefonica.es/tag/internet" class="ctc-tag tag-link-22" title="10 topics" rel="tag" style="font-size: 22pt;">Alineación</a>
+				<a href="http://www.blogtelefonica.es/tag/marketing" class="ctc-tag tag-link-9" title="2 topics" rel="tag" style="font-size: 16.375pt;">aceite</a>
+				<a href="http://www.blogtelefonica.es/tag/moviles" class="ctc-tag tag-link-2" title="7 topics" rel="tag" style="font-size: 16.375pt;">Suspensión</a>
+				<a href="http://www.blogtelefonica.es/tag/movistar" class="ctc-tag tag-link-20" title="2 topics" rel="tag" style="font-size: 7pt;">sincronización</a>
+				<a href="http://www.blogtelefonica.es/tag/movil" class="ctc-tag tag-link-24" title="7 topics" rel="tag" style="font-size: 10.75pt;">dirección</a>
+				<a href="http://www.blogtelefonica.es/tag/nuevas-tecnologias-2" class="ctc-tag tag-link-71" title="8 topics" rel="tag" style="font-size: 8.875pt;">Transmisión</a>
+				<a href="http://www.blogtelefonica.es/tag/samsung" class="ctc-tag tag-link-63" title="3 topics" rel="tag" style="font-size: 10.75pt;">accesorios</a>
+				<a href="http://www.blogtelefonica.es/tag/smartphones" class="ctc-tag tag-link-6" title="5 topics" rel="tag" style="font-size: 12.625pt;">lavado</a>
+				<a href="http://www.blogtelefonica.es/tag/telefonia-2" class="ctc-tag tag-link-95" title="3 topics" rel="tag" style="font-size: 8.875pt;">escáner</a>
+				<a href="http://www.blogtelefonica.es/tag/telefonia-movil" class="ctc-tag tag-link-75" title="3 topics" rel="tag" style="font-size: 16.375pt;">abolladuras</a>
+				<a href="http://www.blogtelefonica.es/tag/telefono-fijo" class="ctc-tag tag-link-25" title="3 topics" rel="tag" style="font-size: 8.875pt;">revisión tecnomecánica</a>
+				<a href="http://www.blogtelefonica.es/tag/telefono-fijo" class="ctc-tag tag-link-25" title="3 topics" rel="tag" style="font-size: 10.75pt;">Aire Acondicionado</a>
+			</div>
+		</li>
+		<div class="textWidget">
+			<form
+			 id="feedburner"
+			 style="border:1px solid #ccc;padding:3px;text-align:center;"
+			 action="http://feedburner.google.com/fb/a/mailverify"
+			 method="post"
+			 target="popupwindow"
+			 onsubmit=
+			 "window.open('http://feedburner.google.com/fb/a/mailverify?uri=nickfreearblog', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true"
+			 >
+			 <p><label for="fbg-mail">Ingrese su dirección email:</label>
+			 <p><input  id="fbg-mail" type="email" required style="width:140px" name="email" />
+			 <input type="hidden" value="nickfreearblog" name="uri" />
+			 <input type="hidden" name="loc" value="es_ES" />
+			 <input type="submit" value="Suscribirse" />
+			 <p>Delivered by <a href="http://feedburner.google.com" target="_blank" title="New window">FeedBurner</a>
+			 <!--<a href="http://feeds.feedburner.com/nickfreearblog"><img
+			 src="http://www.open.ac.uk/includes/icons/16x16px/062feed-icon-16x16.gif" alt="RSS feed" />-->
+			<!--<img src="http://feeds.feedburner.com/~fc/nickfreearblog?bg=99CCFF&amp;fg=222222&amp;anim=0" height="26" width="88" style="border:0" alt="" />-->
+			</a></p> 
+			</form>
+		</div>
+	</div>	
+	<footer class="mainFooter">
+		<p> Copyright &copy; 2015 Servitalleres</p>
+	</footer>
+</body>
+</html>
