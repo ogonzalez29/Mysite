@@ -70,6 +70,18 @@ body {
 	color: #989898;
 }
 
+.postContent{
+	width: 96%;
+	float: left;
+	padding: 1% 1%;
+	background-color: #f8f8f8;
+	/*top right bottom left */
+	margin: 1% 0% 1% 1%;
+	border-radius: 7px;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+}
+
 .sideInfo {
 	padding: 2% 2%;
 	margin-top: 20px;
