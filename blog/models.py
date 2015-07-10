@@ -30,3 +30,8 @@ class Categorias(models.Model):
     def __unicode__(self):
         return self.nombre 
 
+class ManejadorPost(models.Manager):
+    def get_query_set(self):
+        default_queryset = super(ManejadorPost,self).get_query_set()
+        return default_queryset.filter(status__in=ESTADO_VISIBLE)
+
