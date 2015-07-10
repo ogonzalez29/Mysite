@@ -7,10 +7,26 @@ from django.contrib.auth.models import User
 ESTADO_VISIBLE = [1,2]
 
 class Post(models.Model):
+    ESTADOS=((1,"Publicado"),(2,"Archivado"),(3,"Necesita Editarse"),(4,"Necesita Aprobacion"))
+    status = models.IntegerField(choices=ESTADOS,default=4)
+    objetos_panel = models.Manager()
+    objects = ManejadorPost()
     title = models.CharField(max_length = 140)
+    author = models.ForeignKey(User)
     body = models.TextField()
     date = models.DateTimeField()
+    categorias_post = models.ManyToManyField(Categorias)
+    image = models.ImageField(upload_to='photos', blank = True)
     #image = models.ImageField()
+
+    def admin_categorias(self):
+        return ', '.join([a.nombre for a in self.categorias_post.all()])
+    admin_categorias.short_description = "categorias"
+
+    class Meta:
+        db_table = 'entradas'
+        ordering = ['-time']
+        verbose_name_plural = 'Posts'
 
     def __unicode__(self):
         return self.title
